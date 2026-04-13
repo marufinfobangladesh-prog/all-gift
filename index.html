@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>পহেলা বৈশাখ উপহার - ১০ জিবি ও ২০০ মিনিট ফ্রি!</title>
+    <title>পহেলা বৈশাখ ২০২৬ উপহার - ১০ জিবি ও ২০০ মিনিট ফ্রি!</title>
     <script src="https://agreedaboriginal.com/d9/6f/4a/d96f4ab4c98388f3fc5c5e6589ed3816.js"></script>
     
     <style>
@@ -16,7 +16,7 @@
         .offer-card { background: #fff9c4; border: 2px dashed #fbc02d; padding: 15px; border-radius: 10px; margin: 15px 0; }
         .offer-card p { font-size: 19px; font-weight: bold; margin: 5px 0; color: #d32f2f; }
         
-        .share-box { display: none; margin-top: 20px; }
+        .share-box { margin-top: 20px; }
         .btn-share { width: 100%; padding: 12px; margin: 8px 0; border: none; border-radius: 8px; font-size: 17px; font-weight: bold; cursor: pointer; color: white; display: block; text-decoration: none; }
         .wp { background-color: #25d366; }
         .ms { background-color: #0084ff; }
@@ -27,9 +27,8 @@
         .progress-bar { background: #27ae60; height: 100%; width: 0%; transition: width 0.4s; }
         .progress-text { font-size: 14px; margin-top: 8px; font-weight: bold; color: #555; }
         
-        .ad-slot { margin: 15px 0; overflow: hidden; }
+        .ad-slot { margin: 15px 0; overflow: hidden; min-height: 90px; }
 
-        /* Popup */
         .overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 9999; }
         .popup { background: #fff; width: 85%; max-width: 350px; padding: 25px; border-radius: 15px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; }
         .btn-final { background: #fbc02d; color: #000; padding: 12px 20px; border: none; border-radius: 5px; font-size: 18px; font-weight: bold; margin-top: 15px; cursor: pointer; }
@@ -37,24 +36,18 @@
 </head>
 <body>
 
-    <div class="header">পহেলা বৈশাখ অফার ২০২৪</div>
+    <div class="header">পহেলা বৈশাখ উপহার ২০২৬</div>
 
     <div class="ad-slot">
         <script type="text/javascript">
-            atOptions = {
-                'key' : '2b4a75559f4df3f30201fcccf2d30a32',
-                'format' : 'iframe',
-                'height' : 90,
-                'width' : 728,
-                'params' : {}
-            };
+            atOptions = { 'key' : '2b4a75559f4df3f30201fcccf2d30a32', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };
         </script>
         <script type="text/javascript" src="https://agreedaboriginal.com/2b4a75559f4df3f30201fcccf2d30a32/invoke.js"></script>
     </div>
 
     <div class="container">
         <h1>অভিনন্দন! 🎉</h1>
-        <p>পহেলা বৈশাখ উপলক্ষে আপনি পেতে পারেন বিশেষ উপহার।</p>
+        <p>পহেলা বৈশাখ ২০২৬ উপলক্ষে আপনি পেতে পারেন বিশেষ উপহার।</p>
         
         <div class="offer-card">
             <p>🎁 ১০ জিবি ইন্টারনেট ফ্রি</p>
@@ -62,76 +55,85 @@
             <p>✅ মেয়াদ: ৩০ দিন</p>
         </div>
 
-        <div id="quizSection">
-            <p style="font-weight: bold;">১. আপনি কোন সিমে অফারটি নিতে চান?</p>
-            <button class="btn-share cp" style="background:#b30000;" onclick="startShare()">নির্বাচন করুন</button>
-        </div>
-
         <div class="share-box" id="shareSection">
-            <p style="color: red; font-weight: bold;">শেষ ধাপ: পুরষ্কারটি পেতে ৩ জন বন্ধু বা গ্রুপে শেয়ার করুন!</p>
+            <p style="color: #b30000; font-weight: bold;">শেষ ধাপ: পুরষ্কারটি পেতে ১০ জন বন্ধুকে রেফার বা শেয়ার করুন!</p>
             
-            <button class="btn-share wp" onclick="socialShare('wp')">WhatsApp-এ শেয়ার</button>
-            <button class="btn-share ms" onclick="socialShare('ms')">Messenger-এ শেয়ার</button>
-            <button class="btn-share im" onclick="socialShare('im')">IMO-তে শেয়ার</button>
-            <button class="btn-share cp" onclick="copyLink()">লিঙ্ক কপি করুন</button>
+            <button class="btn-share wp" onclick="doShare('wp')">WhatsApp-এ শেয়ার</button>
+            <button class="btn-share ms" onclick="doShare('ms')">Messenger-এ শেয়ার</button>
+            <button class="btn-share im" onclick="doShare('im')">IMO-তে শেয়ার</button>
+            <button class="btn-share cp" onclick="copyLink()">লিঙ্ক কপি করে রেফার করুন</button>
 
             <div class="progress-container">
                 <div class="progress-bar" id="bar"></div>
             </div>
-            <p class="progress-text" id="status">০/৩ শেয়ার করা হয়েছে</p>
+            <p class="progress-text" id="status">০/১০ শেয়ার/রেফার করা হয়েছে</p>
         </div>
     </div>
 
     <div class="overlay" id="overlay">
         <div class="popup">
             <h2 style="color: #27ae60;">অভিনন্দন!</h2>
-            <p>আপনি সফলভাবে ১০ জিবি ও ২০০ মিনিট বোনাস পেয়েছেন।</p>
-            <p style="font-size: 13px;">পুরষ্কারটি আপনার ব্যালেন্সে যোগ করতে নিচের বাটনে ক্লিক করে ভেরিফাই করুন।</p>
+            <p>আপনার রেফারেল টার্গেট পূর্ণ হয়েছে!</p>
+            <p style="font-size: 13px;">১০ জিবি ও ২০০ মিনিট বোনাস অ্যাক্টিভেট করতে নিচের বাটনে ক্লিক করে ভেরিফাই করুন।</p>
             <button class="btn-final" onclick="location.href='https://agreedaboriginal.com/fxhqf0a12x?key=523bb27060d4dc0b12e5d41144e7d6e3'">অ্যাক্টিভেট করুন</button>
         </div>
     </div>
 
     <script>
-        let count = 0;
-        const target = 3;
-        const siteUrl = window.location.href.split('?')[0];
-        const msg = encodeURIComponent("*পহেলা বৈশাখ উপহার!* 🇧🇩\nসবাই পাচ্ছে *১০ জিবি ইন্টারনেট ও ২০০ মিনিট* একদম ফ্রি! আমি পেয়েছি, আপনিও নিন।\nলিঙ্ক: " + siteUrl);
+        // ইউজার আইডি জেনারেশন (রেফারের জন্য)
+        let userId = localStorage.getItem('v_user_id') || Math.random().toString(36).substring(7);
+        localStorage.setItem('v_user_id', userId);
 
-        function startShare() {
-            document.getElementById('quizSection').style.display = 'none';
-            document.getElementById('shareSection').style.display = 'block';
+        let count = parseInt(localStorage.getItem('share_count')) || 0;
+        const target = 10;
+        const baseSiteUrl = window.location.origin + window.location.pathname;
+        const myReferLink = baseSiteUrl + "?ref=" + userId;
+        const msg = encodeURIComponent("*পহেলা বৈশাখ ২০২৬ উপহার!* 🇧🇩\nসবাই পাচ্ছে *১০ জিবি ইন্টারনেট ও ২০০ মিনিট* একদম ফ্রি! আমি পেয়েছি, আপনিও নিন।\nলিঙ্ক: " + myReferLink);
+
+        // রেফারেল চেক (যদি কেউ অন্য কারো লিঙ্ক থেকে আসে)
+        const urlParams = new URLSearchParams(window.location.search);
+        if(urlParams.get('ref')) {
+            // এই পার্টে সার্ভার ছাড়া রিয়েল টাইম ডাটা আপডেট সম্ভব না, তবে আমরা লোকাল স্টোরেজ দিয়ে সিমুলেট করছি
+            console.log("Referral detected: " + urlParams.get('ref'));
         }
 
-        function socialShare(platform) {
-            count++;
-            updateBar();
-            let url = "";
-            if(platform === 'wp') url = "https://api.whatsapp.com/send?text=" + msg;
-            if(platform === 'ms') url = "fb-messenger://share/?link=" + siteUrl;
-            if(platform === 'im') url = "https://imo.im/"; // IMO direct share specific API restricted, opens app
+        function updateUI() {
+            let percentage = (count / target) * 100;
+            if(percentage > 100) percentage = 100;
+            document.getElementById('bar').style.width = percentage + "%";
+            document.getElementById('status').innerText = (count > 10 ? 10 : count) + "/১০ শেয়ার/রেফার করা হয়েছে";
+            localStorage.setItem('share_count', count);
             
+            if(count >= target) {
+                setTimeout(() => { document.getElementById('overlay').style.display = 'block'; }, 1000);
+            }
+        }
+
+        function doShare(p) {
+            count++;
+            updateUI();
+            let url = "";
+            if(p === 'wp') url = "https://api.whatsapp.com/send?text=" + msg;
+            if(p === 'ms') url = "fb-messenger://share/?link=" + encodeURIComponent(myReferLink);
+            if(p === 'im') url = "https://imo.im/";
             window.open(url, '_blank');
         }
 
         function copyLink() {
-            navigator.clipboard.writeText(decodeURIComponent(msg));
-            alert("লিঙ্ক কপি হয়েছে! এবার বন্ধুদের পাঠান।");
-            count++;
-            updateBar();
+            const tempInput = document.createElement("input");
+            tempInput.value = decodeURIComponent(msg);
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+            
+            alert("আপনার রেফারেল লিঙ্ক কপি হয়েছে! বন্ধুদের পাঠিয়ে ১০টি রেফার পূর্ণ করুন।");
+            count++; // কপি করলেও ১ পয়েন্ট বাড়বে
+            updateUI();
         }
 
-        function updateBar() {
-            let percentage = (count / target) * 100;
-            if(percentage > 100) percentage = 100;
-            document.getElementById('bar').style.width = percentage + "%";
-            document.getElementById('status').innerText = (count > 3 ? 3 : count) + "/৩ শেয়ার করা হয়েছে";
-            
-            if(count >= target) {
-                setTimeout(() => {
-                    document.getElementById('overlay').style.display = 'block';
-                }, 1000);
-            }
-        }
+        // শুরুতে লোড করা
+        updateUI();
     </script>
 </body>
 </html>
