@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>সারপ্রাইজ গিফট!</title>
+    <style>
+        body { background: #fdf2e9; text-align: center; font-family: Arial, sans-serif; }
+        .box { background: white; margin: 30px auto; padding: 20px; width: 90%; max-width: 400px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        h1 { color: #27ae60; }
+        .name { color: #e74c3c; font-size: 28px; font-weight: bold; margin: 20px; }
+        input { padding: 12px; width: 80%; border: 1px solid #ddd; border-radius: 5px; margin-bottom: 10px; }
+        .btn { background: #25d366; color: white; padding: 15px 20px; border: none; border-radius: 50px; font-size: 18px; cursor: pointer; text-decoration: none; display: inline-block; }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <h1>ঈদ মোবারক!</h1>
+        <p>আপনাকে শুভেচ্ছা জানাচ্ছেন:</p>
+        <div class="name" id="showName">আপনার বন্ধু</div>
+        
+        <p>আপনার নিজের নামে ম্যাজিক দেখতে চান?</p>
+        <input type="text" id="nameInput" placeholder="আপনার নাম লিখুন...">
+        <br>
+        <button class="btn" onclick="start()">তৈরি করুন ও শেয়ার করুন</button>
+    </div>
+
+    <script>
+        // নাম দেখানোর জন্য
+        const urlParams = new URLSearchParams(window.location.search);
+        const n = urlParams.get('n');
+        if(n) document.getElementById('showName').innerText = decodeURIComponent(n);
+
+        function start() {
+            const name = document.getElementById('nameInput').value;
+            if(name === "") { alert("নাম লিখুন!"); return; }
+
+            // আপনার Adsterra Direct Link এখানে সেট করা হয়েছে
+            window.open("https://agreedaboriginal.com/fxhqf0a12x?key=523bb27060d4dc0b12e5d41144e7d6e3", "_blank");
+
+            // হোয়াটসঅ্যাপ লিঙ্ক তৈরি
+            const currentUrl = window.location.href.split('?')[0];
+            const shareUrl = currentUrl + "?n=" + encodeURIComponent(name);
+            const msg = "*দেখুন " + name + " আপনাকে কি পাঠিয়েছে!* 😍\nলিঙ্কটি ওপেন করুন:\n" + shareUrl;
+            
+            window.location.href = "https://api.whatsapp.com/send?text=" + encodeURIComponent(msg);
+        }
+    </script>
+</body>
+</html>
