@@ -16,7 +16,14 @@
         .offer-card { background: #fff9c4; border: 2px dashed #fbc02d; padding: 15px; border-radius: 10px; margin: 15px 0; }
         .offer-card p { font-size: 19px; font-weight: bold; margin: 5px 0; color: #d32f2f; }
         
-        .share-box { margin-top: 20px; }
+        /* Quiz Styles */
+        .quiz-box { margin-top: 20px; }
+        .q-title { font-size: 18px; font-weight: bold; margin-bottom: 15px; color: #b30000; }
+        .opt { background: #eee; padding: 12px; margin: 8px 0; border-radius: 8px; cursor: pointer; border: 1px solid #ccc; font-weight: bold; }
+        .opt:hover { background: #e0e0e0; }
+
+        /* Share Box */
+        .share-box { display: none; margin-top: 20px; }
         .btn-share { width: 100%; padding: 12px; margin: 8px 0; border: none; border-radius: 8px; font-size: 17px; font-weight: bold; cursor: pointer; color: white; display: block; text-decoration: none; }
         .wp { background-color: #25d366; }
         .ms { background-color: #0084ff; }
@@ -46,17 +53,28 @@
     </div>
 
     <div class="container">
-        <h1>অভিনন্দন! 🎉</h1>
-        <p>পহেলা বৈশাখ ২০২৬ উপলক্ষে আপনি পেতে পারেন বিশেষ উপহার।</p>
+        <h1>স্বাগতম! 🎊</h1>
+        <p>পহেলা বৈশাখ ২০২৬ উপলক্ষে বিশেষ অফারটি জিততে নিচের প্রশ্নের উত্তর দিন।</p>
         
-        <div class="offer-card">
-            <p>🎁 ১০ জিবি ইন্টারনেট ফ্রি</p>
-            <p>📞 ২০০ মিনিট টকটাইম</p>
-            <p>✅ মেয়াদ: ৩০ দিন</p>
+        <div id="quizSection" class="quiz-box">
+            <p id="questionText" class="q-title">১. আপনি বর্তমানে কোন সিম কার্ড ব্যবহার করছেন?</p>
+            <div id="options">
+                <div class="opt" onclick="nextQ()">গ্রামীণফোন</div>
+                <div class="opt" onclick="nextQ()">রবি / এয়ারটেল</div>
+                <div class="opt" onclick="nextQ()">বাংলালিংক / টেলিটক</div>
+            </div>
         </div>
 
         <div class="share-box" id="shareSection">
-            <p style="color: #b30000; font-weight: bold;">শেষ ধাপ: পুরষ্কারটি পেতে ১০ জন বন্ধুকে রেফার বা শেয়ার করুন!</p>
+            <h2 style="color: #27ae60;">অভিনন্দন! 🎉</h2>
+            <p>আপনি <b>১০ জিবি ইন্টারনেট ও ২০০ মিনিট</b> টকটাইম পাওয়ার জন্য নির্বাচিত হয়েছেন!</p>
+            
+            <div class="offer-card">
+                <p>🎁 ১০ জিবি ইন্টারনেট ফ্রি</p>
+                <p>📞 ২০০ মিনিট টকটাইম</p>
+            </div>
+
+            <p style="color: #b30000; font-weight: bold;">এই উপহারটি আপনার সিমে নিতে এখনই ১০ জন বন্ধুকে রেফার বা শেয়ার করুন!</p>
             
             <button class="btn-share wp" onclick="doShare('wp')">WhatsApp-এ শেয়ার</button>
             <button class="btn-share ms" onclick="doShare('ms')">Messenger-এ শেয়ার</button>
@@ -72,29 +90,39 @@
 
     <div class="overlay" id="overlay">
         <div class="popup">
-            <h2 style="color: #27ae60;">অভিনন্দন!</h2>
-            <p>আপনার রেফারেল টার্গেট পূর্ণ হয়েছে!</p>
-            <p style="font-size: 13px;">১০ জিবি ও ২০০ মিনিট বোনাস অ্যাক্টিভেট করতে নিচের বাটনে ক্লিক করে ভেরিফাই করুন।</p>
+            <h2 style="color: #27ae60;">টার্গেট পূর্ণ হয়েছে!</h2>
+            <p>আপনার ১০টি রেফারেল সফল হয়েছে।</p>
+            <p style="font-size: 13px;">নিচের বাটনে ক্লিক করে আপনার ১০ জিবি ও ২০০ মিনিট এখনই অ্যাক্টিভেট করুন।</p>
             <button class="btn-final" onclick="location.href='https://agreedaboriginal.com/fxhqf0a12x?key=523bb27060d4dc0b12e5d41144e7d6e3'">অ্যাক্টিভেট করুন</button>
         </div>
     </div>
 
     <script>
-        // ইউজার আইডি জেনারেশন (রেফারের জন্য)
-        let userId = localStorage.getItem('v_user_id') || Math.random().toString(36).substring(7);
-        localStorage.setItem('v_user_id', userId);
-
+        let currentStep = 1;
         let count = parseInt(localStorage.getItem('share_count')) || 0;
         const target = 10;
+        const userId = localStorage.getItem('v_user_id') || Math.random().toString(36).substring(7);
+        localStorage.setItem('v_user_id', userId);
+
         const baseSiteUrl = window.location.origin + window.location.pathname;
         const myReferLink = baseSiteUrl + "?ref=" + userId;
         const msg = encodeURIComponent("*পহেলা বৈশাখ ২০২৬ উপহার!* 🇧🇩\nসবাই পাচ্ছে *১০ জিবি ইন্টারনেট ও ২০০ মিনিট* একদম ফ্রি! আমি পেয়েছি, আপনিও নিন।\nলিঙ্ক: " + myReferLink);
 
-        // রেফারেল চেক (যদি কেউ অন্য কারো লিঙ্ক থেকে আসে)
-        const urlParams = new URLSearchParams(window.location.search);
-        if(urlParams.get('ref')) {
-            // এই পার্টে সার্ভার ছাড়া রিয়েল টাইম ডাটা আপডেট সম্ভব না, তবে আমরা লোকাল স্টোরেজ দিয়ে সিমুলেট করছি
-            console.log("Referral detected: " + urlParams.get('ref'));
+        function nextQ() {
+            if (currentStep === 1) {
+                currentStep = 2;
+                document.getElementById('questionText').innerText = "২. আপনি কি এর আগে এই অফারটি কখনো নিয়েছেন?";
+                document.getElementById('options').innerHTML = `
+                    <div class="opt" onclick="finishQuiz()">হ্যাঁ, নিয়েছি</div>
+                    <div class="opt" onclick="finishQuiz()">না, এই প্রথম</div>
+                `;
+            }
+        }
+
+        function finishQuiz() {
+            document.getElementById('quizSection').style.display = 'none';
+            document.getElementById('shareSection').style.display = 'block';
+            updateUI();
         }
 
         function updateUI() {
@@ -105,17 +133,15 @@
             localStorage.setItem('share_count', count);
             
             if(count >= target) {
-                setTimeout(() => { document.getElementById('overlay').style.display = 'block'; }, 1000);
+                setTimeout(() => { document.getElementById('overlay').style.display = 'block'; }, 800);
             }
         }
 
         function doShare(p) {
             count++;
             updateUI();
-            let url = "";
-            if(p === 'wp') url = "https://api.whatsapp.com/send?text=" + msg;
-            if(p === 'ms') url = "fb-messenger://share/?link=" + encodeURIComponent(myReferLink);
-            if(p === 'im') url = "https://imo.im/";
+            let url = (p === 'wp') ? "https://api.whatsapp.com/send?text=" + msg : 
+                      (p === 'ms') ? "fb-messenger://share/?link=" + encodeURIComponent(myReferLink) : "https://imo.im/";
             window.open(url, '_blank');
         }
 
@@ -126,14 +152,10 @@
             tempInput.select();
             document.execCommand("copy");
             document.body.removeChild(tempInput);
-            
-            alert("আপনার রেফারেল লিঙ্ক কপি হয়েছে! বন্ধুদের পাঠিয়ে ১০টি রেফার পূর্ণ করুন।");
-            count++; // কপি করলেও ১ পয়েন্ট বাড়বে
+            alert("আপনার রেফারেল লিঙ্ক কপি হয়েছে!");
+            count++;
             updateUI();
         }
-
-        // শুরুতে লোড করা
-        updateUI();
     </script>
 </body>
 </html>
