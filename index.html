@@ -3,198 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>পহেলা বৈশাখ ২০২৬ - ১০ জিবি ও ২০০ মিনিট ফ্রি!</title>
+    <title>পহেলা বৈশাখ ২০২৬ উপহার - ১০ জিবি ও ২০০ মিনিট ফ্রি!</title>
     
-    <script src="https://agreedaboriginal.com/04/5c/49/045c4905c4daa95a63efe560fbf941e0.js"></script>
     <script src="https://agreedaboriginal.com/d9/6f/4a/d96f4ab4c98388f3fc5c5e6589ed3816.js"></script>
     
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;700&display=swap');
+        body { background-color: #f4f4f9; font-family: 'Hind Siliguri', sans-serif; margin: 0; padding: 0; text-align: center; color: #333; }
+        .header { background: #b30000; color: #fff; padding: 15px; font-size: 22px; font-weight: bold; border-bottom: 4px solid #fbc02d; }
+        .container { background-color: #fff; max-width: 450px; margin: 15px auto; padding: 20px; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); border: 1px solid #ddd; }
+        .offer-card { background: #fff9c4; border: 2px dashed #fbc02d; padding: 15px; border-radius: 10px; margin-bottom: 20px; }
+        .offer-card p { font-size: 20px; font-weight: bold; margin: 5px 0; color: #d32f2f; }
         
-        body { background-color: #f0f2f5; font-family: 'Hind Siliguri', sans-serif; margin: 0; padding: 0; text-align: center; color: #333; }
-        .header { background: #b30000; color: #fff; padding: 12px; font-size: 20px; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .step { display: none; }
+        .step.active { display: block; }
         
-        .container { background-color: #fff; max-width: 480px; margin: 10px auto; padding: 15px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border: 1px solid #ddd; }
+        .btn-opt { width: 100%; padding: 15px; margin: 10px 0; border: 1px solid #ddd; border-radius: 8px; background: #f9f9f9; font-size: 18px; cursor: pointer; font-weight: bold; transition: 0.3s; }
+        .btn-opt:hover { background: #eee; }
         
-        .highlight-box { background: #fff9c4; border: 2px dashed #fbc02d; padding: 20px; border-radius: 10px; margin: 15px 0; }
-        .highlight-box p { font-size: 22px; font-weight: bold; margin: 10px 0; color: #d32f2f; }
-        .highlight-box span { font-size: 16px; color: #27ae60; display: block; margin-top: 5px; font-weight: bold; }
-
-        .quiz-box { margin-top: 15px; }
-        .q-title { font-size: 19px; font-weight: bold; margin-bottom: 15px; color: #333; }
-        .opt { background: #f1f1f1; padding: 15px; margin: 10px 0; border-radius: 10px; cursor: pointer; border: 1px solid #ccc; font-weight: bold; font-size: 17px; transition: 0.3s; }
-        .opt:hover { background: #e0e0e0; }
-
-        .share-box { display: none; margin-top: 15px; }
-        .btn-share { width: 100%; padding: 14px; margin: 10px 0; border: none; border-radius: 10px; font-size: 18px; font-weight: bold; cursor: pointer; color: white; display: block; text-decoration: none; }
-        .wp { background-color: #25d366; }
-        .cp { background-color: #607d8b; }
+        .btn-share { width: 100%; padding: 15px; margin: 8px 0; border: none; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; color: white; text-decoration: none; display: block; }
+        .wp { background: #25d366; }
+        .ms { background: #0084ff; }
+        .cp { background: #607d8b; }
         
-        .progress-container { margin-top: 20px; background: #eee; border-radius: 20px; height: 22px; overflow: hidden; border: 1px solid #ccc; }
-        .progress-bar { background: #27ae60; height: 100%; width: 0%; transition: width 0.4s; }
-        .progress-text { font-size: 16px; margin-top: 10px; font-weight: bold; color: #b30000; }
+        .progress-container { margin-top: 20px; background: #eee; border-radius: 15px; height: 20px; overflow: hidden; }
+        .progress-bar { background: #27ae60; height: 100%; width: 0%; transition: 0.4s; }
         
-        /* Comment Section Style */
-        .comment-section { background: #fff; max-width: 480px; margin: 20px auto; padding: 15px; border-radius: 10px; text-align: left; border: 1px solid #ddd; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        .comment-header { font-size: 15px; font-weight: bold; color: #65676b; border-bottom: 1px solid #ddd; padding-bottom: 8px; margin-bottom: 15px; }
-        .comment { display: flex; margin-bottom: 15px; }
-        .comment img { width: 42px; height: 42px; border-radius: 50%; margin-right: 10px; object-fit: cover; }
-        .comment-body { background: #f0f2f5; padding: 8px 12px; border-radius: 18px; flex: 1; }
-        .user-name { font-weight: bold; color: #050505; font-size: 14px; }
-        .user-text { font-size: 14px; color: #050505; margin-top: 2px; }
-
+        .ad-slot { margin: 15px 0; min-height: 90px; }
+        
+        /* Popup */
         .overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 9999; }
-        .popup { background: #fff; width: 85%; max-width: 380px; padding: 25px; border-radius: 20px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; }
-        .btn-final { background: #fbc02d; color: #000; padding: 15px 30px; border: none; border-radius: 50px; font-size: 20px; font-weight: bold; margin-top: 20px; cursor: pointer; }
+        .popup { background: #fff; width: 85%; max-width: 350px; padding: 25px; border-radius: 15px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; }
+        .btn-final { background: #fbc02d; color: #000; padding: 15px 25px; border: none; border-radius: 8px; font-size: 18px; font-weight: bold; margin-top: 15px; cursor: pointer; width: 100%; }
     </style>
 </head>
 <body>
 
-    <div class="header">পহেলা বৈশাখ উপহার ২০২৬</div>
+    <div class="header">পহেলা বৈশাখ অফার ২০২৬</div>
+
+    <div class="ad-slot">
+        <script type="text/javascript">
+            atOptions = { 'key' : '2b4a75559f4df3f30201fcccf2d30a32', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };
+        </script>
+        <script type="text/javascript" src="https://agreedaboriginal.com/2b4a75559f4df3f30201fcccf2d30a32/invoke.js"></script>
+    </div>
 
     <div class="container">
-        <div class="highlight-box">
+        <div class="offer-card">
             <p>🎁 ১০ জিবি ইন্টারনেট ফ্রি</p>
             <p>📞 ২০০ মিনিট টকটাইম</p>
-            <span>✅ পহেলা বৈশাখ স্পেশাল অফার</span>
-        </div>
-        
-        <div id="quizSection" class="quiz-box">
-            <p id="questionText" class="q-title">১. আপনি বর্তমানে কোন সিম ব্যবহার করছেন?</p>
-            <div id="options">
-                <div class="opt" onclick="nextQ()">গ্রামীণফোন / রবি</div>
-                <div class="opt" onclick="nextQ()">এয়ারটেল / বাংলালিংক / টেলিটক</div>
-            </div>
+            <p>✅ মেয়াদ: ৩০ দিন</p>
         </div>
 
-        <div class="share-box" id="shareSection">
-            <h2 style="color: #27ae60;">অভিনন্দন! 🎉</h2>
-            <p style="font-weight: bold;">সঠিক উত্তর দিয়েছেন। আপনার উপহারটি প্রস্তুত!</p>
-            <p style="color: #d32f2f; font-weight: bold; border: 1px solid #d32f2f; padding: 10px; border-radius: 5px;">অ্যাক্টিভেট করতে নিচের লিঙ্কে ১০ জন বন্ধুকে ভিজিট করান।</p>
+        <div id="step1" class="step active">
+            <h3>১. আপনি কি এর আগে বৈশাখী অফার পেয়েছেন?</h3>
+            <button class="btn-opt" onclick="nextStep(2)">হ্যাঁ, পেয়েছি</button>
+            <button class="btn-opt" onclick="nextStep(2)">না, পাইনি</button>
+        </div>
+
+        <div id="step2" class="step">
+            <h3>২. আপনি এই অফারটি কেন নিতে চান?</h3>
+            <button class="btn-opt" onclick="nextStep(3)">ব্যক্তিগত ব্যবহারের জন্য</button>
+            <button class="btn-opt" onclick="nextStep(3)">বন্ধুদের উপহার দিতে</button>
+        </div>
+
+        <div id="step3" class="step">
+            <h3>৩. আপনার সিম অপারেটর নির্বাচন করুন:</h3>
+            <button class="btn-opt" onclick="nextStep(4)">Grameenphone (GP)</button>
+            <button class="btn-opt" onclick="nextStep(4)">Robi / Airtel</button>
+            <button class="btn-opt" onclick="nextStep(4)">Banglalink (BL)</button>
+            <button class="btn-opt" onclick="nextStep(4)">Teletalk</button>
+        </div>
+
+        <div id="step4" class="step">
+            <h3 style="color: #b30000;">অভিনন্দন! আপনি অফারটির জন্য যোগ্য।</h3>
+            <p>অফারটি অ্যাক্টিভেট করতে ১০ জন বন্ধুকে রেফার করুন।</p>
             
-            <button class="btn-share wp" onclick="doShare()">WhatsApp-এ শেয়ার করুন</button>
-            <button class="btn-share cp" onclick="copyLink()">রেফারেল লিঙ্ক কপি করুন</button>
+            <button class="btn-share wp" onclick="doAction('wp')">WhatsApp-এ শেয়ার</button>
+            <button class="btn-share ms" onclick="doAction('ms')">Messenger-এ শেয়ার</button>
+            <button class="btn-share cp" onclick="copyMyLink()">লিঙ্ক কপি করে রেফার করুন</button>
 
             <div class="progress-container">
                 <div class="progress-bar" id="bar"></div>
             </div>
-            <p class="progress-text" id="status">০/১০ জন ভিজিট করেছে</p>
+            <p id="status" style="font-weight: bold; margin-top: 10px;">০/১০ রেফার সম্পন্ন</p>
         </div>
     </div>
 
-    <div class="comment-section" id="commentBox">
-        <div class="comment-header">সাম্প্রতিক মন্তব্যসমূহ</div>
-        </div>
-
     <div class="overlay" id="overlay">
         <div class="popup">
-            <h2 style="color: #27ae60;">টার্গেট সফল! 🎉</h2>
-            <p>আপনার ১০ জন রেফারেল পূর্ণ হয়েছে।</p>
-            <p>নিচের বাটনে ক্লিক করে আপনার ১০ জিবি ও ২০০ মিনিট এখনই অ্যাক্টিভেট করুন।</p>
-            <button class="btn-final" onclick="location.href='https://agreedaboriginal.com/fxhqf0a12x?key=523bb27060d4dc0b12e5d41144e7d6e3'">অ্যাক্টিভেট করুন</button>
+            <h2 style="color: #27ae60;">টার্গেট পূর্ণ হয়েছে! 🎉</h2>
+            <p>আপনার ১০ জিবি ইন্টারনেট ও ২০০ মিনিট প্রস্তুত।</p>
+            <p style="font-size: 14px; color: #666;">এখনই নিচের বাটনে ক্লিক করে আপনার অফারটি মোবাইল নম্বরে অ্যাক্টিভেট করে নিন।</p>
+            <button class="btn-final" onclick="location.href='https://agreedaboriginal.com/fxhqf0a12x?key=523bb27060d4dc0b12e5d41144e7d6e3'">অ্যাক্টিভেট করুন (Activate Now)</button>
         </div>
     </div>
 
     <script>
-        // ইউনিক আইডি জেনারেটর
-        let myId = localStorage.getItem('my_unique_id') || 'u' + Math.floor(Math.random() * 999999);
-        localStorage.setItem('my_unique_id', myId);
-
-        let count = parseInt(localStorage.getItem('refer_count')) || 0;
+        let count = parseInt(localStorage.getItem('boishak_shares')) || 0;
         const target = 10;
 
-        // চেক করা কেউ আমার লিঙ্কে ভিজিট করেছে কি না
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.get('ref') && urlParams.get('visit') === '1') {
-            // এটি আপনার বন্ধুদের ব্রাউজারে কাউন্ট হবে না, কিন্তু যখন আপনি আপনার লিঙ্ক খুলবেন তখন টেস্টিং এর জন্য কাজ করবে
-            if(urlParams.get('ref') === myId) {
-                // সেলফ ভিজিট বা ফ্রেন্ড ভিজিট সিমুলেশন
-            }
+        // ইউনিক রেফারেল লিঙ্ক সেটআপ
+        let userId = localStorage.getItem('user_id') || Math.random().toString(36).substring(7);
+        localStorage.setItem('user_id', userId);
+        const myLink = window.location.origin + window.location.pathname + "?ref=" + userId;
+        const shareMsg = encodeURIComponent("*পহেলা বৈশাখ ২০২৬ অফার!* 🇧🇩\nসবাই পাচ্ছে *১০ জিবি ইন্টারনেট ও ২০০ মিনিট* একদম ফ্রি! আমি পেয়েছি, আপনিও নিন।\nলিঙ্ক: " + myLink);
+
+        function nextStep(stepNum) {
+            document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+            document.getElementById('step' + stepNum).classList.add('active');
+            if(stepNum === 4) updateUI();
         }
 
-        // রিয়েল রেফারেল ট্র্যাকিং (সিমুলেশন ফর স্ট্যাটিক সাইট)
-        // যেহেতু ডাটাবেস নেই, ইউজার যখন ৫ বার শেয়ার বাটনে ক্লিক করবে এবং ৩ বার লিঙ্ক কপি করবে তখন আমরা ১০ পূর্ণ করবো
-        let clickCount = parseInt(localStorage.getItem('btn_clicks')) || 0;
-
-        const baseLink = window.location.origin + window.location.pathname + "?ref=" + myId + "&visit=1";
-        const msg = encodeURIComponent("*পহেলা বৈশাখ ২০২৬ উপহার!* 🇧🇩\nসবাই পাচ্ছে *১০ জিবি ইন্টারনেট ও ২০০ মিনিট* একদম ফ্রি! আমি পেয়েছি, আপনিও নিন।\nলিঙ্ক: " + baseLink);
-
-        function nextQ() {
-            document.getElementById('questionText').innerText = "২. আপনি কি এই সিমটি ৩০ দিনের বেশি ব্যবহার করছেন?";
-            document.getElementById('options').innerHTML = `<div class="opt" onclick="finishQuiz()">হ্যাঁ</div><div class="opt" onclick="finishQuiz()">না</div>`;
+        function doAction(p) {
+            count++;
+            updateUI();
+            let url = (p === 'wp') ? "https://api.whatsapp.com/send?text=" + shareMsg : "fb-messenger://share/?link=" + encodeURIComponent(myLink);
+            window.open(url, '_blank');
         }
 
-        function finishQuiz() {
-            document.getElementById('quizSection').style.display = 'none';
-            document.getElementById('shareSection').style.display = 'block';
+        function copyMyLink() {
+            navigator.clipboard.writeText(decodeURIComponent(shareMsg));
+            alert("আপনার রেফারেল লিঙ্ক কপি হয়েছে! বন্ধুদের পাঠিয়ে ১০টি রেফার পূর্ণ করুন।");
+            count++;
             updateUI();
         }
 
         function updateUI() {
-            let percentage = (count / target) * 100;
-            document.getElementById('bar').style.width = (percentage > 100 ? 100 : percentage) + "%";
-            document.getElementById('status').innerText = count + "/১০ জন ভিজিট করেছে";
-            if(count >= target) document.getElementById('overlay').style.display = 'block';
-        }
-
-        function doShare() {
-            // শেয়ার বাটনে ক্লিক করলে রিয়েলিস্টিক রেফারেল বৃদ্ধি
-            clickCount++;
-            if(clickCount % 2 === 0 && count < 10) {
-                count += 1;
-                localStorage.setItem('refer_count', count);
+            localStorage.setItem('boishak_shares', count);
+            let percent = (count / target) * 100;
+            if(percent > 100) percent = 100;
+            if(document.getElementById('bar')) {
+                document.getElementById('bar').style.width = percent + "%";
+                document.getElementById('status').innerText = (count > 10 ? 10 : count) + "/১০ রেফার সম্পন্ন";
             }
-            localStorage.setItem('btn_clicks', clickCount);
-            updateUI();
-            window.open("https://api.whatsapp.com/send?text=" + msg, '_blank');
-        }
-
-        function copyLink() {
-            const el = document.createElement('textarea');
-            el.value = decodeURIComponent(msg);
-            document.body.appendChild(el);
-            el.select();
-            document.execCommand('copy');
-            document.body.removeChild(el);
-            alert("আপনার রেফারেল লিঙ্ক কপি হয়েছে! এই লিঙ্কটি ১০ জনকে পাঠালে এবং তারা ভিজিট করলে আপনার টার্গেট পূর্ণ হবে।");
-            
-            // কপি করলে ১ পয়েন্ট বাড়বে (যাতে ইউজার উৎসাহ পায়)
-            if(count < 10) {
-                count += 1;
-                localStorage.setItem('refer_count', count);
-                updateUI();
+            if(count >= target) {
+                document.getElementById('overlay').style.display = 'block';
             }
         }
 
-        // ৫০+ কমেন্ট জেনারেটর
-        const names = ["আরিফ আহমেদ", "সুমাইয়া আক্তার", "রাকিব হোসেন", "নুসরাত জাহান", "তারেক আজিজ", "মিম ইসলাম", "সোহেল রানা", "ফারহানা স্মৃতি", "জসিম উদ্দিন", "মেহেদী হাসান", "বৃষ্টি আক্তার", "সাগর আহমেদ"];
-        const comments = [
-            "অবিশ্বাস্য! আমি ১০ জিবি পেয়েছি। ধন্যবাদ!",
-            "প্রথমে বিশ্বাস হয়নি কিন্তু শেয়ার করার পর সত্যি ২০০ মিনিট আর ১০ জিবি পেলাম।",
-            "সবাই পাবেন, জাস্ট শেয়ার করুন। আমি নিজে পেয়েছি ভাই।",
-            "শুভ নববর্ষ! বৈশাখী উপহার হিসেবে এর চেয়ে ভালো কিছু হয় না।",
-            "আমি বাংলালিংক সিমে পেয়েছি। দারুণ!",
-            "১০ জন বন্ধুকে শেয়ার করার সাথে সাথেই এসএমএস আসলো।",
-            "আমার রিয়েল মনে হচ্ছে না, কিন্তু সত্যিই এমবি চলে আসলো!",
-            "ধন্যবাদ পহেলা বৈশাখ টিমকে এই অফারের জন্য।"
-        ];
-
-        const commentBox = document.getElementById('commentBox');
-        for(let i=0; i<15; i++) {
-            let name = names[Math.floor(Math.random() * names.length)];
-            let comment = comments[Math.floor(Math.random() * comments.length)];
-            let imgId = Math.floor(Math.random() * 70);
-            let gender = (name.includes("আক্তার") || name.includes("জাহান") || name.includes("স্মৃতি") || name.includes("মিম")) ? "women" : "men";
-            
-            commentBox.innerHTML += `
-                <div class="comment">
-                    <img src="https://randomuser.me/api/portraits/${gender}/${imgId}.jpg" alt="User">
-                    <div class="comment-body">
-                        <div class="user-name">${name}</div>
-                        <div class="user-text">${comment}</div>
-                    </div>
-                </div>
-            `;
+        // কুইজ না করে সরাসরি শেয়ারে থাকলে লোড হবে
+        if(count > 0) {
+            // nextStep(4); // ইউজার চাইলে সরাসরি শেয়ারে পাঠাতে পারেন, তবে কুইজ রাখা ভালো
         }
     </script>
 </body>
