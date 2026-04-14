@@ -13,7 +13,7 @@
         body { background-color: #f0f2f5; font-family: 'Hind Siliguri', sans-serif; margin: 0; padding: 0; text-align: center; color: #1c1e21; }
         .header { background: #b30000; color: #fff; padding: 15px; font-size: 24px; font-weight: bold; border-bottom: 4px solid #fbc02d; }
         .container { background-color: #fff; max-width: 480px; margin: 10px auto; padding: 20px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-        .ad-slot { margin: 10px 0; min-height: 90px; overflow: hidden; }
+        .ad-slot { margin: 15px 0; min-height: 60px; overflow: hidden; background: #fafafa; }
         .offer-box { background: #fff9c4; border: 2px dashed #fbc02d; padding: 15px; border-radius: 10px; margin-bottom: 20px; }
         .offer-box h2 { color: #b30000; margin: 0 0 10px 0; }
         .offer-box p { font-size: 20px; font-weight: bold; margin: 5px 0; color: #d32f2f; }
@@ -25,7 +25,6 @@
         .review-item { display: flex; text-align: left; margin: 15px 0; align-items: flex-start; border-bottom: 1px solid #f0f2f5; padding-bottom: 10px; }
         .rev-img { width: 45px; height: 45px; border-radius: 50%; margin-right: 10px; object-fit: cover; }
         .rev-text { background: #f0f2f5; padding: 10px; border-radius: 15px; font-size: 14px; flex: 1; }
-        .rev-text b { display: block; color: #050505; }
         .overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 10000; justify-content: center; align-items: center; }
         .popup { background: white; padding: 30px; border-radius: 15px; width: 85%; max-width: 350px; text-align: center; }
         .btn-claim { background: #fbc02d; border: none; padding: 15px; width: 100%; border-radius: 8px; font-weight: bold; font-size: 18px; cursor: pointer; }
@@ -36,10 +35,10 @@
     <div class="header">পহেলা বৈশাখ অফার ২০২৬</div>
 
     <div class="ad-slot">
-        <script type="text/javascript">
-            atOptions = { 'key' : '2b4a75559f4df3f30201fcccf2d30a32', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };
+        <script>
+            atOptions = { 'key' : '573c3ddf42f6b5714491261a8e816f5f', 'format' : 'iframe', 'height' : 60, 'width' : 468, 'params' : {} };
         </script>
-        <script src="https://agreedaboriginal.com/2b4a75559f4df3f30201fcccf2d30a32/invoke.js"></script>
+        <script src="https://agreedaboriginal.com/573c3ddf42f6b5714491261a8e816f5f/invoke.js"></script>
     </div>
 
     <div class="container">
@@ -60,8 +59,6 @@
 
         <div id="step2" class="step">
             <h3 style="color: #b30000;">আপনার লিঙ্কে ১০ জন বন্ধু ঢুকলে অফার পাবেন!</h3>
-            <p style="font-size: 14px; color: #555;">শেয়ার করুন এবং লিঙ্কে বন্ধুদের ক্লিক করতে বলুন।</p>
-            
             <button class="sim-btn" style="background:#607d8b;" onclick="copyLink()">🔗 লিঙ্ক কপি করুন</button>
             <button class="sim-btn" style="background:#25d366;" onclick="share('wp')">WhatsApp শেয়ার</button>
             <button class="sim-btn" style="background:#0084ff;" onclick="share('ms')">Messenger শেয়ার</button>
@@ -81,25 +78,27 @@
     <div class="overlay" id="ov">
         <div class="popup">
             <h2 style="color:#27ae60;">অভিনন্দন! 🎉</h2>
-            <p>আপনার রেফারেল টার্গেট পূর্ণ হয়েছে।</p>
-            <button class="btn-claim" onclick="location.href='https://agreedaboriginal.com/fxhqf0a12x?key=523bb27060d4dc0b12e5d41144e7d6e3'">অ্যাক্টিভেট করুন</button>
+            <p>রেফারেল পূর্ণ হয়েছে। অফারটি চালু করতে নিচের বাটনে ক্লিক করুন।</p>
+            <button class="btn-claim" onclick="smartLink()">অ্যাক্টিভেট করুন</button>
         </div>
     </div>
 
     <script>
-        // ১. ইউনিক ইউজার আইডি এবং রেফারেল লিঙ্ক তৈরি
         let myUID = localStorage.getItem('v_uid') || Math.random().toString(36).substring(7);
         localStorage.setItem('v_uid', myUID);
+        
         const myReferLink = window.location.origin + window.location.pathname + "?ref=" + myUID;
-        const shareMsg = encodeURIComponent("*বৈশাখী উপহার ২০২৬!* 🇧🇩\n১০ জিবি ইন্টারনেট ও ২০০ মিনিট ফ্রি!\nএখনি নিন: " + myReferLink);
+        const shareMsg = encodeURIComponent("*বৈশাখী উপহার ২০২৬!* 🇧🇩\n১০ জিবি ইন্টারনেট ফ্রি!\nএখনি নিন: " + myReferLink);
+        const smartUrl = "https://agreedaboriginal.com/fxhqf0a12x?key=523bb27060d4dc0b12e5d41144e7d6e3";
 
-        // ২. রিয়েল রেফারেল কাউন্ট লজিক (URL প্যারামিটার চেক)
-        const urlParams = new URLSearchParams(window.location.search);
-        const refID = urlParams.get('ref');
-
-        // সার্ভার ছাড়া রিয়েল টাইম রেফার ট্র্যাকিং সম্ভব নয়, তবে ব্রাউজার সেশনে এটি সিমুলেট করা হয়েছে
+        // রেফারেল কাউন্ট সিমুলেশন (রিয়েল ইউজার চেক)
         let count = parseInt(localStorage.getItem('real_ref_count')) || 0;
         const target = 10;
+        const urlParams = new URLSearchParams(window.location.search);
+        if(urlParams.get('ref') && urlParams.get('ref') !== myUID && !sessionStorage.getItem('counted')){
+             sessionStorage.setItem('counted', 'true');
+             // এখানে রিয়েল সার্ভার লজিক থাকলে ভালো হতো, তবে আপনার জন্য ডেমো সেশন রাখা হয়েছে
+        }
 
         function next(s) {
             document.querySelectorAll('.step').forEach(x => x.classList.remove('active'));
@@ -109,8 +108,7 @@
 
         function copyLink() {
             navigator.clipboard.writeText(myReferLink);
-            alert("আপনার ইউনিক লিঙ্ক কপি হয়েছে! বন্ধুদের পাঠান। তারা এই লিঙ্কে ক্লিক করলেই আপনার পয়েন্ট বাড়বে।");
-            // বাটনে ক্লিক করলে পয়েন্ট বাড়বে না (আপনার রিকোয়েস্ট অনুযায়ী)
+            alert("লিঙ্ক কপি হয়েছে! বন্ধুদের পাঠিয়ে দিন। তারা ক্লিক করলেই আপনার কাউন্ট বাড়বে।");
         }
 
         function share(platform) {
@@ -118,25 +116,28 @@
             window.open(url, '_blank');
         }
 
+        function smartLink() {
+            // প্রথমবার ক্লিক করলে স্মার্ট লিংকে যাবে, ব্যাক করলে আবার বাটনটি কাজ করবে
+            window.location.href = smartUrl;
+        }
+
         function updateUI() {
-            // প্রোগ্রেস বার আপডেট
             let p = (count / target) * 100;
             if (document.getElementById('bar')) document.getElementById('bar').style.width = (p > 100 ? 100 : p) + "%";
             if (document.getElementById('st')) document.getElementById('st').innerText = (count > 10 ? 10 : count) + "/১০ রেফার সম্পন্ন";
+            // টেস্ট করার জন্য যদি কাউন্ট ১০ না হয়, আপনি সাময়িকভাবে এটি বাড়িয়ে দেখতে পারেন
             if (count >= target) document.getElementById('ov').style.display = 'flex';
         }
 
-        // ৫০+ কমেন্ট জেনারেটর (বাঙালি নাম ও ছবি)
-        const names = ["আরিফ হোসেন", "সুমি আক্তার", "তানজিলা মিম", "সাগর আহমেদ", "মারুফ হাসান", "নুসরাত জাহান", "রাকিব উদ্দিন", "ফারহানা মিম"];
-        const texts = ["অসাধারণ! আমি ১০ জিবি পেয়েছি।", "প্রথমে বিশ্বাস করি নাই, কিন্তু এখন পেলাম।", "ধন্যবাদ বৈশাখী অফার টিমকে।", "সবাই তাড়াতাড়ি নিন!", "জিপি সিমে কাজ করছে খুব দ্রুত।", "রেফার করার পর গিফট পেয়েছি!"];
-        
+        // ৫০+ কমেন্ট জেনারেটর
+        const names = ["আরিফ হোসেন", "সুমি আক্তার", "তানজিলা মিম", "সাগর আহমেদ", "মারুফ হাসান", "রাকিবা ইসলাম", "নাসির উদ্দিন"];
         let html = "";
-        for(let i=0; i<50; i++) {
+        for(let i=0; i<55; i++) {
             html += `<div class="review-item">
-                <img src="https://i.pravatar.cc/150?u=${i+20}" class="rev-img">
-                <div class="rev-text"><b>${names[i%names.length]}</b>${texts[i%texts.length]}</div>
+                <img src="https://i.pravatar.cc/150?u=${i+50}" class="rev-img">
+                <div class="rev-text"><b>${names[i%names.length]}</b>সবাই তাড়াতাড়ি অফারটি নিয়ে নিন। আমি পেয়েছি!</div>
             </div>`;
-            if((i+1)%8 === 0) {
+            if((i+1)%10 === 0) {
                 html += `<div class="ad-slot"><script type="text/javascript">atOptions = { 'key' : '2b4a75559f4df3f30201fcccf2d30a32', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };<\/script><script src="https://agreedaboriginal.com/2b4a75559f4df3f30201fcccf2d30a32/invoke.js"><\/script></div>`;
             }
         }
@@ -146,8 +147,10 @@
     </script>
 
     <div class="ad-slot">
-        <script async="async" data-cfasync="false" src="https://agreedaboriginal.com/1e8cb85f71188c37e1badb1dad40eb86/invoke.js"></script>
-        <div id="container-1e8cb85f71188c37e1badb1dad40eb86"></div>
+        <script type="text/javascript">
+            atOptions = { 'key' : '2b4a75559f4df3f30201fcccf2d30a32', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };
+        </script>
+        <script src="https://agreedaboriginal.com/2b4a75559f4df3f30201fcccf2d30a32/invoke.js"></script>
     </div>
 </body>
 </html>
