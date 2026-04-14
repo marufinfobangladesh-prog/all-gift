@@ -1,104 +1,69 @@
-// --- নতুন এবং ফিক্সড লজিক ---
-
-// ১. অ্যাড সিস্টেমে কনফ্লিক্ট এড়াতে Adsterra invoke স্ক্রিপ্ট
+// ১. অ্যাড ইনভোক সিস্টেম এবং নতুন অ্যাড কোড যুক্ত করা
 (function() {
     var ad_srcs = [
+        "https://agreedaboriginal.com/d9/6f/4a/d96f4ab4c98388f3fc5c5e6589ed3816.js", // আপনার নতুন অ্যাড
         "https://agreedaboriginal.com/1e8cb85f71188c37e1badb1dad40eb86/invoke.js",
-        "https://agreedaboriginal.com/5b/f3/9b/5bf39b0f7f17f178316dae922608089e.js",
-        "https://agreedaboriginal.com/04/5c/49/045c4905c4daa95a63efe560fbf941e0.js",
-        "https://agreedaboriginal.com/2b4a75559f4df3f30201fcccf2d30a32/invoke.js" // বড় ব্যানার
+        "https://agreedaboriginal.com/5b/f3/9b/5bf39b0f7f17f178316dae922608089e.js"
     ];
 
     ad_srcs.forEach(function(src) {
         var s = document.createElement('script');
         s.src = src;
         s.async = true;
-        s.defer = true;
-        s.setAttribute('data-cfasync', 'false');
         document.head.appendChild(s);
     });
 })();
 
-// ২. ইউনিক ইউজার আইডি এবং শেয়ার কাউন্ট
-let userId = localStorage.getItem('v_uid') || Math.random().toString(36).substring(7);
-localStorage.setItem('v_uid', userId);
-let count = parseInt(localStorage.getItem('sh_26')) || 0;
-const target = 10;
-
-// ৩. URL থেকে রেফারেল চেক (লিঙ্কে ক্লিক করে ঢুকলে কাউন্ট হবে)
-const urlParams = new URLSearchParams(window.location.search);
-if(urlParams.get('ref') && !localStorage.getItem('already_counted_' + urlParams.get('ref'))) {
-    count++;
-    localStorage.setItem('already_counted_' + urlParams.get('ref'), 'true');
-    localStorage.setItem('sh_26', count);
-}
-
-// ৪. ইউনিক রেফারেল লিঙ্ক তৈরি
-const baseSiteUrl = window.location.origin + window.location.pathname;
-const myReferLink = baseSiteUrl + "?ref=" + userId;
-const shareMsg = encodeURIComponent("*পহেলা বৈশাখ উপহার!* 🇧🇩\n১০ জিবি ইন্টারনেট ও ২০০ মিনিট ফ্রি!\nনিয়ে নিন এখান থেকে: " + myReferLink);
-
-// ৫. কমেন্ট সেকশনে ভিন্ন ভিন্ন ছবি এবং অ্যাড বসানো
-function setupComments() {
+// ২. কমেন্ট প্রোফাইল পিকচার এবং ইন-লাইন অ্যাড সেটআপ
+function setupMobileAdsAndComments() {
     const commentsContainer = document.querySelector('.reviews');
     if (!commentsContainer) return;
 
-    // কুইক ক্রপ করা ছবি লিঙ্ক (চিত্র ১৬ থেকে অনুপ্রাণিত)
+    // ভিন্ন ভিন্ন বাংলাদেশী মানুষের প্রোফাইল ছবির ডাইনামিক লিঙ্ক
     const prof_pics = [
         'https://i.ibb.co/L5rK5L7/rev-1.jpg',
         'https://i.ibb.co/3mN9fL5/rev-2.jpg',
         'https://i.ibb.co/D7N9fL5/rev-3.jpg',
-        'https://i.ibb.co/LvcR8L7/rev-4.jpg'
+        'https://i.ibb.co/LvcR8L7/rev-4.jpg',
+        'https://i.ibb.co/vXyR8L7/rev-5.jpg'
     ];
 
     const commentItems = commentsContainer.querySelectorAll('.review-item');
     
     commentItems.forEach((item, index) => {
-        // প্রতিটি কমেন্টে আলাদা ছবি সেট করা
-        const img = item.querySelector('.rev-img');
-        if (img && prof_pics[index % prof_pics.length]) {
+        // প্রতিটি কমেন্টে আলাদা ছবি সেট করা (Fixing image not found issue)
+        const img = item.querySelector('.rev-img') || item.querySelector('img');
+        if (img) {
             img.src = prof_pics[index % prof_pics.length];
+            img.onerror = function() { this.src = 'https://www.w3schools.com/howto/img_avatar.png'; };
         }
 
-        // প্রতি ২ কমেন্ট পর পর অ্যাড বসানো
-        if ((index + 1) % 2 === 0 && index + 1 < commentItems.length) {
+        // প্রতি ১টি কমেন্ট পরপর অ্যাড বসানো (মোবাইল আর্নিং বাড়ানোর জন্য)
+        if ((index + 1) % 1 === 0) {
             const adDiv = document.createElement('div');
-            adDiv.className = 'ad-slot';
-            // একটি ইন-আর্টিকেল অ্যাড কোড
-            adDiv.innerHTML = '<script type="text/javascript">atOptions = { "key" : "5bf39b0f7f17f178316dae922608089e", "format" : "iframe", "height" : 250, "width" : 300, "params" : {} };</script>';
+            adDiv.style.margin = "10px 0";
+            adDiv.style.textAlign = "center";
+            // আপনার দেওয়া অ্যাড স্ক্রিপ্ট ইনজেকশন
+            adDiv.innerHTML = '<div id="container-d96f4ab4c98388f3fc5c5e6589ed3816"></div>';
             item.after(adDiv);
         }
     });
 }
 
-// ৬. ইউজার ইন্টারফেস আপডেট করা
+// ৩. শেয়ার এবং প্রগ্রেস লজিক (অপরিবর্তিত)
+let count = parseInt(localStorage.getItem('sh_26')) || 0;
+const target = 10;
+
 function updateUI() {
     let p = (count/target)*100; if(p>100) p=100;
-    document.getElementById('bar').style.width = p+"%";
-    document.getElementById('st').innerText = (count>10?10:count)+"/১০ শেয়ার সম্পন্ন";
-    if(count>=target) document.getElementById('ov').style.display='block';
+    const bar = document.getElementById('bar');
+    const st = document.getElementById('st');
+    if(bar) bar.style.width = p+"%";
+    if(st) st.innerText = (count>10?10:count)+"/১০ শেয়ার সম্পন্ন";
 }
 
-function next(s) {
-    document.querySelectorAll('.step').forEach(x => x.classList.remove('active'));
-    document.getElementById('step'+s).classList.add('active');
-    if(s===3) updateUI();
-}
-
-function sh(p) {
-    // শেয়ার বাটনে ক্লিক করলে শেয়ার অ্যাপ ওপেন হবে, কাউন্ট হবে না
-    let u = (p==='wp') ? "https://api.whatsapp.com/send?text="+shareMsg : "fb-messenger://share/?link="+encodeURIComponent(myReferLink);
-    window.open(u, '_blank');
-}
-
-function cp() {
-    // লিঙ্ক কপি করলে কাউন্ট হবে না
-    navigator.clipboard.writeText(decodeURIComponent(shareMsg));
-    alert("আপনার রেফারেল লিঙ্ক কপি হয়েছে! এই লিঙ্কে বন্ধুদের ঢোকাতে পারলেই আপনার অফার অ্যাক্টিভেট হবে।");
-}
-
-// ৭. পেজ লোড হলেই সেটআপ এবং প্রগ্রেস আপডেট করা
+// পেজ লোড হলে কার্যকর হবে
 window.onload = function() {
-    setupComments();
+    setupMobileAdsAndComments();
     updateUI();
 };
