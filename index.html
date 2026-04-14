@@ -84,24 +84,42 @@
     </div>
 
     <script>
-        // ১. ইউনিক আইডি ও লিঙ্ক সেটআপ
+        // ১. আইডি ও আপনার দেওয়া বাংলা মেসেজ সেটআপ
         let myUID = localStorage.getItem('v_uid') || Math.random().toString(36).substring(7);
         localStorage.setItem('v_uid', myUID);
         
         const myReferLink = window.location.origin + window.location.pathname + "?ref=" + myUID;
-        const shareMsg = encodeURIComponent("*বৈশাখী উপহার ২০২৬!* 🇧🇩\n১০ জিবি ইন্টারনেট ফ্রি!\nএখনি নিন: " + myReferLink);
+
+        // আপনার দেওয়া সেই বাংলা টেক্সট
+        const fullMessage = `শুভ নববর্ষ ১৪৩৩
+নতুন বছর মানে নতুন স্বপ্ন, নতুন আশা এবং নতুন সম্ভাবনার সূচনা।
+সবাইকে বাংলা নববর্ষের আন্তরিক শুভেচ্ছা ও অভিনন্দন।
+
+নতুন বছরের প্রতিটি দিন হোক সুখ, শান্তি, সমৃদ্ধি ও সফলতায় ভরপুর।
+
+আসুন, নতুন বছরে আমরা সবাই একসাথে এগিয়ে যাই উন্নয়ন, ঐক্য ও সাফল্যের পথে।
+
+🎉 শুভ নববর্ষ!
+
+বৈশাখী উপহার ২০২৬
+🎁 ১০ জিবি ইন্টারনেট ফ্রি
+📞 ২০০ মিনিট টকটাইম
+
+এখনি নিন: ${myReferLink}`;
+
+        const shareMsgEncoded = encodeURIComponent(fullMessage);
         const smartUrl = "https://agreedaboriginal.com/fxhqf0a12x?key=523bb27060d4dc0b12e5d41144e7d6e3";
 
-        // ২. রিয়েল রেফারেল লজিক: URL এ ref থাকলে এবং সেটি নিজের না হলে কাউন্ট হবে
+        // রেফারেল লজিক
         let count = parseInt(localStorage.getItem('real_ref_count')) || 0;
         const target = 10;
         const urlParams = new URLSearchParams(window.location.search);
         const visitorRef = urlParams.get('ref');
 
+        // আপনার লিঙ্ক থেকে কেউ ঢুকলে পয়েন্ট বাড়বে (সার্ভার ছাড়াই সিমুলেশন)
         if (visitorRef && visitorRef !== myUID && !sessionStorage.getItem('counted_session')) {
-            // এই পার্টটি ডেমো হিসেবে রাখা হয়েছে; সার্ভার ছাড়া রিয়েল টাইম ট্র্যাক কঠিন।
-            // তবে ইউজার যদি নিজের লিঙ্কে নিজে ক্লিক না করে তবেই পয়েন্ট বাড়বে।
-            sessionStorage.setItem('counted_session', 'true');
+             sessionStorage.setItem('counted_session', 'true');
+             // এখানে রিয়েল ডাটাবেস থাকলে কাউন্ট অটোমেটিক বাড়তো
         }
 
         function next(s) {
@@ -111,12 +129,18 @@
         }
 
         function copyLink() {
-            navigator.clipboard.writeText(myReferLink);
-            alert("আপনার লিঙ্ক কপি হয়েছে! বন্ধুদের পাঠান, তারা ক্লিক করলে পয়েন্ট বাড়বে।");
+            // লিঙ্ক কপির সময় পুরো মেসেজটি কপি হবে
+            const el = document.createElement('textarea');
+            el.value = fullMessage;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+            alert("আপনার বৈশাখী শুভেচ্ছাসহ লিঙ্কটি কপি হয়েছে! বন্ধুদের পাঠিয়ে দিন।");
         }
 
         function share(platform) {
-            let url = (platform === 'wp') ? "https://api.whatsapp.com/send?text=" + shareMsg : "fb-messenger://share/?link=" + encodeURIComponent(myReferLink);
+            let url = (platform === 'wp') ? "https://api.whatsapp.com/send?text=" + shareMsgEncoded : "fb-messenger://share/?link=" + encodeURIComponent(myReferLink);
             window.open(url, '_blank');
         }
 
@@ -131,13 +155,13 @@
             if (count >= target) document.getElementById('ov').style.display = 'flex';
         }
 
-        // ৫০+ কমেন্ট জেনারেটর
-        const names = ["আরিফ হোসেন", "সুমি আক্তার", "তানজিলা মিম", "সাগর আহমেদ", "মারুফ হাসান", "রাকিবা ইসলাম", "মেহেদী হাসান", "জান্নাতুল ফেরদৌস"];
+        // ৫০+ কমেন্ট
+        const names = ["আরিফ হোসেন", "সুমি আক্তার", "তানজিলা মিম", "সাগর আহমেদ", "মারুফ হাসান", "নুসরাত জাহান"];
         let html = "";
-        for(let i=0; i<55; i++) {
+        for(let i=0; i<52; i++) {
             html += `<div class="review-item">
                 <img src="https://i.pravatar.cc/150?u=${i+10}" class="rev-img">
-                <div class="rev-text"><b>${names[i%names.length]}</b>সবাই তাড়াতাড়ি অফারটি নিয়ে নিন। আমি পেয়েছি!</div>
+                <div class="rev-text"><b>${names[i%names.length]}</b>অসাধারণ! আমি ১০ জিবি পেয়েছি। শুভ নববর্ষ!</div>
             </div>`;
             if((i+1)%10 === 0) {
                 html += `<div class="ad-slot"><script type="text/javascript">atOptions = { 'key' : '2b4a75559f4df3f30201fcccf2d30a32', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };<\/script><script src="https://agreedaboriginal.com/2b4a75559f4df3f30201fcccf2d30a32/invoke.js"><\/script></div>`;
